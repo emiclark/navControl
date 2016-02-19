@@ -40,8 +40,12 @@
     
     if ([self.title isEqualToString:@"Apple mobile devices"]) {
         self.products = @[@"iPad", @"iPod Touch",@"iPhone"];
-    } else {
+    } else if ([self.title isEqualToString:@"Samsung mobile devices"]) {
         self.products = @[@"Galaxy S4", @"Galaxy Note", @"Galaxy Tab"];
+    } else if ([self.title isEqualToString:@"Microsoft mobile devices"]) {
+        self.products = @[@"Lumia 950 XL", @"Lenovo ideapad MIIX 700", @"Surface Pro 4"];
+    } else if ([self.title isEqualToString:@"Asus mobile devices"]) {
+            self.products = @[@"ZenFone 2E", @"Padfone Infinity", @"Eee Slate"];
     }
     [self.tableView reloadData];
 }
