@@ -75,6 +75,17 @@
     // Configure the cell...
     
     cell.textLabel.text = [self.companyList objectAtIndex:[indexPath row]];
+    if ([cell.textLabel.text isEqualToString: @"Apple mobile devices"]) {
+        [[cell imageView] setImage: [UIImage imageNamed:@"apple.png"]];
+    } else if ([cell.textLabel.text isEqualToString: @"Samsung mobile devices"]) {
+        [[cell imageView] setImage: [UIImage imageNamed:@"samsung.png"]];
+    } else if ([cell.textLabel.text isEqualToString:@"Microsoft mobile devices"]) {
+        [[cell imageView] setImage: [UIImage imageNamed:@"microsoft.png"]];
+    } else if ([cell.textLabel.text isEqualToString: @"Asus mobile devices"]) {
+        [[cell imageView] setImage: [UIImage imageNamed:@"asus.png"]];
+    }
+    
+    
     
     return cell;
 }
@@ -88,7 +99,7 @@
 }
 */
 
-/*
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -96,11 +107,11 @@
         // Delete the row from the data source
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+//    else if (editingStyle == UITableViewCellEditingStyleInsert) {
+//        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+//    }   
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.
@@ -125,12 +136,17 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
 
-
     if (indexPath.row == 0){
         self.productViewController.title = @"Apple mobile devices";
-    } else {
+    } else if (indexPath.row == 1){
         self.productViewController.title = @"Samsung mobile devices";
+    } else if (indexPath.row == 2){
+        self.productViewController.title = @"Microsoft mobile devices";
+    } else if (indexPath.row == 3){
+        self.productViewController.title = @"Asus mobile devices";
     }
+    
+    self.productViewController.currentCompanyNumber = indexPath.row;
     
     [self.navigationController
         pushViewController:self.productViewController

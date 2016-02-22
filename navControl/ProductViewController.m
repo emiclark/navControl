@@ -40,12 +40,17 @@
     
     if ([self.title isEqualToString:@"Apple mobile devices"]) {
         self.products = @[@"iPad", @"iPod Touch",@"iPhone"];
+
+        
     } else if ([self.title isEqualToString:@"Samsung mobile devices"]) {
         self.products = @[@"Galaxy S4", @"Galaxy Note", @"Galaxy Tab"];
-    } else if ([self.title isEqualToString:@"Microsoft mobile devices"]) {
+    }
+        else if ([self.title isEqualToString:@"Microsoft mobile devices"]) {
         self.products = @[@"Lumia 950 XL", @"Lenovo ideapad MIIX 700", @"Surface Pro 4"];
+    
     } else if ([self.title isEqualToString:@"Asus mobile devices"]) {
             self.products = @[@"ZenFone 2E", @"Padfone Infinity", @"Eee Slate"];
+            
     }
     [self.tableView reloadData];
 }
@@ -81,6 +86,7 @@
     }
     // Configure the cell...
     cell.textLabel.text = [self.products objectAtIndex:[indexPath row]];
+    
     return cell;
 }
 
@@ -123,7 +129,7 @@
 }
 */
 
-/*
+
 #pragma mark - Table view delegate
 
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
@@ -131,14 +137,18 @@
 {
     // Navigation logic may go here, for example:
     // Create the next view controller.
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+    self.myWebViewCtrlr = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:nil];
 
     // Pass the selected object to the new view controller.
     
     // Push the view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
+    self.myWebViewCtrlr.title = [self.products objectAtIndex:indexPath.row];
+    self.myWebViewCtrlr.currentProductNumber = indexPath.row;
+    
+    [self.navigationController pushViewController:self.myWebViewCtrlr animated:YES];
+    
 }
  
- */
+
 
 @end

@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WebViewController.h"
 
 @interface ProductViewController : UITableViewController
 @property (nonatomic, retain) NSArray *products;
+@property (nonatomic) NSInteger currentCompanyNumber;
+@property (nonatomic, retain) WebViewController *myWebViewCtrlr;
+
 @end
